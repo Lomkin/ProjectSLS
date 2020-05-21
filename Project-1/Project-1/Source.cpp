@@ -15,7 +15,19 @@ int main()
 
 //	cout << "Enter var1 : " << endl;
 //	cout << "Enter va2:" << endl;
-	ObjClass.ExGeme();
+
+	/*
+	switch (switch_on)
+	{
+	default:
+		ObjClass.ExGeme();
+		break;
+	}
+	*/
+	
+	ObjClass.WordJumbleGame();
+
+
 	return 0;
 
 

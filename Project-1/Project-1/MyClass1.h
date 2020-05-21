@@ -15,7 +15,13 @@ public:
 	MyClass1();
 	~MyClass1();
 
-	void ExGeme();
+	void GuessGeme();
+	void ExepnsiveCalcul();
+	void GameStats();
+	void GameStats2_0();
+	void GameStats3_0();
+	void WordJumbleGame();
+
 private:
 	void pArr(int num);
 	
