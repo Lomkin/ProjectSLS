@@ -17,8 +17,6 @@ MyClass1::~MyClass1()
 	cout << "Memory has been cleaned. Good bye." << endl;
 }
 
-
-
 void MyClass1::pArr(int num)
 {
 
@@ -74,5 +72,14 @@ void MyClass1::ExGeme()
     {
 
     }
+
+}
+void MyClass1::ExGame_2()
+{
+
+
+
+
+
 
 }
