@@ -25,7 +25,7 @@ int main()
 	}
 	*/
 	
-	ObjClass.WordJumbleGame();
+	ObjClass.GameHero_is_inventory_2_0();
 
 
 	return 0;
