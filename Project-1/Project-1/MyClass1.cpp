@@ -254,8 +254,7 @@ void performance() {
 
 
 
-
-
+/*
 /////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
 //class  тоже самое что и typename
 template<class T1, class T2>
@@ -273,7 +272,6 @@ void Summ(T1 a1, T2 b2)
     cout << a1 + b2 << endl;
 
 }
-
 
 /////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
 template<class T1, class T2>
@@ -354,8 +352,6 @@ inline void fnFor1(int iArr[], const int size)
 
 }
 
-
-
 ////////////////////рекурсия расчет факториала////////////////////////////////////
 int Foo(int myFact)
 {
@@ -380,18 +376,19 @@ void ExArr()
 
 
 
-    /*
+    //////
+    //////
+    //////
 
 
-
-
-    */
+    
 
     delete[] ptrArr;
 
 }
 
 
+*/
 ///////////////////пример указателя на кучу ( динамич выделение)/////////////////
 void MyClass1::pArr(int num)
 {
@@ -477,7 +474,6 @@ void MyClass1::GameStats()
     cout << "\nbonus " << endl;
 
 }
-
 
 void MyClass1::GameStats2_0()
 {
@@ -735,8 +731,87 @@ void MyClass1::GameHero_is_inventory_2_0()
 
 }
 
-///////STL библиотека использвоание контейнеров//////////
-void MyClass1::GameHero_is_inventory_3_0()
 
+
+
+
+
+
+///////STL библиотека,vector, использвоание контейнеров //////////
+void MyClass1::GameHero_is_inventory_3_0()
+{
+
+    vector<string> inventory;
+
+    inventory.push_back("sword");
+    inventory.push_back("armor");
+    inventory.push_back("shield");
+
+    //определение контейнеров
+    vector<string>::iterator myIterator;
+
+    vector<string>::const_iterator myConstIterator;
+
+
+    printf("You items:\n");
+
+    for (myConstIterator = inventory.begin(); myConstIterator != inventory.end(); ++myConstIterator)
+    {
+
+
+        cout<<*myConstIterator<<endl;
+
+    }
+
+ printf("\nYou trade your sword for a battle axe.");
+ myIterator = inventory.begin();
+ *myIterator = "battle axe";
+ printf("Your items:\n");
+
+ for (myConstIterator = inventory.begin(); myConstIterator != inventory.end(); ++myConstIterator)
+ {
+
+
+      cout << *myConstIterator << endl;
+
+ }
+ ///два способа отбражения 
+ ///(*myIterator).size()(снчала разименовали а потом взяли размер эл
+ /////myIterator->size() оператор '->'   применияется года работаем с указателм 
+ cout << "\nThe item name '" << *myIterator << "has";
+ cout << (*myIterator).size() << " letters in it.\n";
+
+ cout << "\nThe item name '" <<*myIterator<< "has";
+ cout << myIterator->size() << " letters in it.\n";
+
+
+
+ cout << "\nYou recover a crossdw form a slain enemy.";
+ inventory.insert(inventory.begin(), "crossbow");
+ cout << "\nYour items: \n";
+
+ for (myConstIterator = inventory.begin(); myConstIterator != inventory.end(); ++myConstIterator)
+ {
+
+
+     cout << *myConstIterator << endl;
+
+ }
+
+
+
+ cout << "\nYou armor is destroyed in a fiece battle.";
+ inventory.erase((inventory.begin() + 2));
+ cout << "You items:\n";
+
+ for (myConstIterator = inventory.begin(); myConstIterator != inventory.end(); ++myConstIterator)
+ {
+
+
+     cout << *myConstIterator << endl;
+
+ }
+
+}
 
 

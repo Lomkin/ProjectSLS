@@ -22,6 +22,7 @@ public:
 	void GameStats3_0();
 	void WordJumbleGame();
 	void GameHero_is_inventory_2_0();
+	void GameHero_is_inventory_3_0();
 private:
 	void pArr(int num);
 	

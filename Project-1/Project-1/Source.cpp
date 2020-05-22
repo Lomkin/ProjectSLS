@@ -25,8 +25,7 @@ int main()
 	}
 	*/
 	
-	ObjClass.GameHero_is_inventory_2_0();
-
+	ObjClass.GameHero_is_inventory_3_0();
 
 	return 0;
 
