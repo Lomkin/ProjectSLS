@@ -1,7 +1,11 @@
 ﻿  MyClass1.cpp
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(79,13): warning C4129: 's': unrecognized character escape sequence
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(153,24): warning C4305: '=': truncation from '__int64' to 'unsigned int'
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(153,13): warning C4309: '=': truncation of constant value
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(197,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(263,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(450,13): warning C4129: 's': unrecognized character escape sequence
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(523,24): warning C4305: '=': truncation from '__int64' to 'unsigned int'
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(523,13): warning C4309: '=': truncation of constant value
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(567,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(632,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(696,27): warning C4018: '<': signed/unsigned mismatch
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(706,23): warning C4018: '<': signed/unsigned mismatch
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(716,23): warning C4018: '<': signed/unsigned mismatch
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(779,9): warning C4477: 'printf' : format string '%c' requires an argument of type 'int', but variadic argument 1 has type 'const std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
   Project-1.vcxproj -> F:\My_project_C++\ProjectSLS\Project-1\Debug\Project-1.exe

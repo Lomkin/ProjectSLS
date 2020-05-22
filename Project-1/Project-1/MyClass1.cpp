@@ -3,6 +3,8 @@
 #include<string>
 #include <ctime>
 #include <vector>
+#include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 
 MyClass1::MyClass1()
@@ -17,9 +19,9 @@ MyClass1::~MyClass1()
 	cout << "Memory has been cleaned. Good bye." << endl;
 }
 
-/***********************garbage collector************************
-#include <stdio.h>
-#include <stdlib.h>
+/////////***********************garbage collector************************////////////////
+/*
+
 
 #define STACK_MAX_SIZE 256
 #define IGCT 8
@@ -250,6 +252,10 @@ void performance() {
 }
 */
 
+
+
+/*
+/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
 //class  тоже самое что и typename
 template<class T1, class T2>
 T1 Summ(T1 a, T2 b)
@@ -258,7 +264,7 @@ T1 Summ(T1 a, T2 b)
     return a + b;
 
 }
-//////////////////////////////////////////////////////////////
+/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
 template<class T1, class T2>
 void Summ(T1 a1, T2 b2)
 {
@@ -267,8 +273,7 @@ void Summ(T1 a1, T2 b2)
 
 }
 
-
-/////////////////////////////////////
+/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
 template<class T1, class T2>
 void Summ(T1 a1, T2 b2)
 {
@@ -277,7 +282,8 @@ void Summ(T1 a1, T2 b2)
 
 }
 
-///////////////////////////////////////////////////////////////////
+/////////////Перегрузка функции///////////////////////////////////////////
+//////////////////////Рандом заполнение массива/////////////////////////////////////////////
 inline void fnFor(bool xSts, int iArr[], const int size)
 {
     for (int i = 0; i < size; )
@@ -312,7 +318,7 @@ inline void fnFor(bool xSts, int iArr[], const int size)
 
 
 }
-
+/////////////Перегрузка функции///////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 inline void fnFor(int iArr[], const int size)
 
@@ -324,7 +330,7 @@ inline void fnFor(int iArr[], const int size)
     }
 
 }
-
+/////////////Перегрузка функции///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 inline void fnFor1(int iArr[], const int size)
 
@@ -346,9 +352,7 @@ inline void fnFor1(int iArr[], const int size)
 
 }
 
-
-
-//рекурсия расчет факриала
+////////////////////рекурсия расчет факториала////////////////////////////////////
 int Foo(int myFact)
 {
 
@@ -361,7 +365,7 @@ int Foo(int myFact)
     return myFact * Foo(myFact - 1);
 
 }
-
+///////////////Динамичесоке выделение памяти///////////////////////////////////
 void ExArr()
 {
     int num;
@@ -372,19 +376,20 @@ void ExArr()
 
 
 
-    /*
+    //////
+    //////
+    //////
 
 
-
-
-    */
+    
 
     delete[] ptrArr;
 
 }
 
 
-//пример указателя на кучу
+*/
+///////////////////пример указателя на кучу ( динамич выделение)/////////////////
 void MyClass1::pArr(int num)
 {
 
@@ -406,7 +411,7 @@ void MyClass1::pArr(int num)
 
 };
 
-//simple calulator
+////////////simple calulator
 void MyClass1::ExepnsiveCalcul()
 {
     cout << "7 + 3=" << 7 + 3 << endl;
@@ -424,7 +429,7 @@ void MyClass1::ExepnsiveCalcul()
 
 }
 
-///отображение состояния
+/////////////отображение состояния
 void MyClass1::GameStats()
 {
     typedef unsigned short int ushort;//задефил беззнаковую короткую инт
@@ -469,7 +474,6 @@ void MyClass1::GameStats()
     cout << "\nbonus " << endl;
 
 }
-
 
 void MyClass1::GameStats2_0()
 {
@@ -620,9 +624,8 @@ void MyClass1::WordJumbleGame()
         {"labored", "Going slowly. is it?"},
         {"persistent"," Keep at it"},
         {"jumble","it is what the game is all about"}
-    
-    
     };
+
     enum difficulty{EASY,MEDIUM,HARD,NUM_DIFF_LEVELS};
     cout << "There are " << NUM_DIFF_LEVELS <<" difficulty levels.";
 
@@ -654,6 +657,7 @@ void MyClass1::WordJumbleGame()
     string guess;
     cout << "\n\nYour guess: ";
     cin >> guess;
+
     //цикл будет работь пока игрок не отгадает слово
     while ((guess !=theWord)&&(guess!="quit"))
     {
@@ -668,28 +672,14 @@ void MyClass1::WordJumbleGame()
         cout << "\n\nYour guess: ";
         cin >> guess;
 
-
         if (guess==theWord)
         {
             cout << "\nThat is it! You guessrd it!\n";
         }
         cout << "\nThanks for playing.\n";
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
 }
-
+///////Работа с STL библиотекой и бъектом  vector////////////////
 void MyClass1::GameHero_is_inventory_2_0()
 {
     vector<string> inventory;
@@ -698,25 +688,45 @@ void MyClass1::GameHero_is_inventory_2_0()
     inventory.push_back("armor");
     inventory.push_back("shield");
 
+    /*-------------------------------------------------------*/
     cout<<"You have "<< inventory.size()<< "items.\n";
+    /*-------------------------------------------------------*/
+//вывод массива
     cout << "\nYour items:\n";
-    //вывод массива
-    for (int i = 0; i < inventory.size(); ++i)
+        for (int i = 0; i < inventory.size(); ++i)
     {
         cout <<"Number of massiv:----> " <<inventory[i] << endl;
     }
-
-
+    /*-------------------------------------------------------*/
     cout << "\nYou trade your sword for a battle axe.";
     inventory[0] = "battle axe";
     cout << "\nYour items:\n";
+
     //вывод массива
     for (int i = 0; i < inventory.size(); ++i)
     {
         cout << "Number of massiv:----> "<< inventory[i] << endl;
+    }  
+    /*-------------------------------------------------------*/
+    cout << "\nThe item name '" <<inventory[0]<<"' has";
+    cout << inventory[0].size() << " letters in .\n";
+    cout <<"\nYour shield is destroued in a firece battle.";
+    inventory.pop_back();
+    cout << "\nYour items:\n";
+    for (int i = 0; i <inventory.size(); ++i)
+    {
+        cout << inventory[i]<<endl;
     }
-     
-
+    cout << "\nYou were rodded of all of your possessions by a thief";
+    inventory.clear();
+    if (inventory.empty())
+    {
+        cout << "\nYou have nothing.\n";
+    }
+    else
+    {
+        printf( "\n You nave at least one item\n");
+    }
 
 
 }
@@ -724,5 +734,84 @@ void MyClass1::GameHero_is_inventory_2_0()
 
 
 
+
+
+
+///////STL библиотека,vector, использвоание контейнеров //////////
+void MyClass1::GameHero_is_inventory_3_0()
+{
+
+    vector<string> inventory;
+
+    inventory.push_back("sword");
+    inventory.push_back("armor");
+    inventory.push_back("shield");
+
+    //определение контейнеров
+    vector<string>::iterator myIterator;
+
+    vector<string>::const_iterator myConstIterator;
+
+
+    printf("You items:\n");
+
+    for (myConstIterator = inventory.begin(); myConstIterator != inventory.end(); ++myConstIterator)
+    {
+
+
+        cout<<*myConstIterator<<endl;
+
+    }
+
+ printf("\nYou trade your sword for a battle axe.");
+ myIterator = inventory.begin();
+ *myIterator = "battle axe";
+ printf("Your items:\n");
+
+ for (myConstIterator = inventory.begin(); myConstIterator != inventory.end(); ++myConstIterator)
+ {
+
+
+      cout << *myConstIterator << endl;
+
+ }
+ ///два способа отбражения 
+ ///(*myIterator).size()(снчала разименовали а потом взяли размер эл
+ /////myIterator->size() оператор '->'   применияется года работаем с указателм 
+ cout << "\nThe item name '" << *myIterator << "has";
+ cout << (*myIterator).size() << " letters in it.\n";
+
+ cout << "\nThe item name '" <<*myIterator<< "has";
+ cout << myIterator->size() << " letters in it.\n";
+
+
+
+ cout << "\nYou recover a crossdw form a slain enemy.";
+ inventory.insert(inventory.begin(), "crossbow");
+ cout << "\nYour items: \n";
+
+ for (myConstIterator = inventory.begin(); myConstIterator != inventory.end(); ++myConstIterator)
+ {
+
+
+     cout << *myConstIterator << endl;
+
+ }
+
+
+
+ cout << "\nYou armor is destroyed in a fiece battle.";
+ inventory.erase((inventory.begin() + 2));
+ cout << "You items:\n";
+
+ for (myConstIterator = inventory.begin(); myConstIterator != inventory.end(); ++myConstIterator)
+ {
+
+
+     cout << *myConstIterator << endl;
+
+ }
+
+}
 
 
