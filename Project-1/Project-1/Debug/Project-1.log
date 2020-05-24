@@ -1,1 +1,10 @@
-﻿  Project-1.vcxproj -> D:\MyProjectC++\ProjectSLS\Project-1\Debug\Project-1.exe
+﻿  MyClass1.cpp
+D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(450,13): warning C4129: 's': unrecognized character escape sequence
+D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(523,24): warning C4305: '=': truncation from '__int64' to 'unsigned int'
+D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(523,13): warning C4309: '=': truncation of constant value
+D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(567,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(632,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(696,27): warning C4018: '<': signed/unsigned mismatch
+D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(706,23): warning C4018: '<': signed/unsigned mismatch
+D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(716,23): warning C4018: '<': signed/unsigned mismatch
+  Project-1.vcxproj -> D:\MyProjectC++\ProjectSLS\Project-1\Debug\Project-1.exe

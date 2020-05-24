@@ -23,6 +23,13 @@ public:
 	void WordJumbleGame();
 	void GameHero_is_inventory_2_0();
 	void GameHero_is_inventory_3_0();
+	void HighScores();
+	void Summ();
+	void Summ();
+
+	template<class T1, class T2>
+	T1 Summ(T1 a, T2 b)
+
 private:
 	void pArr(int num);
 	
