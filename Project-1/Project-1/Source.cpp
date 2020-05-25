@@ -25,7 +25,7 @@ int main()
 	}
 	*/
 	
-	ObjClass.GameHero_is_inventory_3_0();
+	ObjClass.HighScores();
 
 	return 0;
 
