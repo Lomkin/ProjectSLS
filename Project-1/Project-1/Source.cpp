@@ -25,7 +25,17 @@ int main()
 	}
 	*/
 	
-	ObjClass.HighScores();
+	//ObjClass.HighScores();
+
+	ObjClass.GameHangman();
+
+
+
+
+
+
+
+
 
 	return 0;
 

@@ -6,21 +6,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <algorithm>
+#include <cctype>
+
+
 using namespace std;
 
 MyClass1::MyClass1()
 
 {
-	cout << "Consturctor" << endl;
+	cout << "CONSTRUCTOR:Run!" << endl;
 
   };
 
 MyClass1::~MyClass1()
 {
-	cout << "Memory has been cleaned. Good bye." << endl;
+	cout << "DESTRUCTOR:Memory has been cleaned. Good bye!" << endl;
 }
 
-/////////***********************garbage collector************************////////////////
+//////////////********************garbage collector*******************////////////////
 /*
 
 
@@ -254,36 +257,7 @@ void performance() {
 */
 
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
-//class  тоже самое что и typename
-template<class T1, class T2>
-T1  MyClass1::Summ(T1 a, T2 b)
-{
-
-    return a + b;
-
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
-template<class T1, class T2>
-void  MyClass1::Summ(T1 a1, T2 b2)
-{
-
-    cout << a1 + b2 << endl;
-
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
-template<class T1, class T2>
-void  MyClass1::Summ(T1 a1, T2 b2)
-{
-
-    cout << (++a1) + (++b2) << endl;
-
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 /////////////Перегрузка функции///////////////////////////////////////////
 //////////////////////Рандом заполнение массива/////////////////////////////////////////////
 inline void MyClass1::fnFor(bool xSts, int iArr[], const int size)
@@ -373,8 +347,7 @@ int  MyClass1::Foo(int myFact)
 ///////////////Динамичесоке выделение памяти///////////////////////////////////
 void MyClass1::ExArr()
 {
-    int num;
-
+    int num=0;
 
     int* ptrArr = new int[num];
 
@@ -527,7 +500,7 @@ void MyClass1::GameStats2_0()
 
 
 
-    score = 42342345435;
+    score = 42342345;
 
     cout << "\nscore: " << score << "\n\n\n\n\n\n" << endl;
 
@@ -843,10 +816,10 @@ void MyClass1::HighScores()
         cout << "_____" << *iter << "_____" << endl;
     }
 
-    cout << "\n\n\n++++++++++Fining a score.++++++++++++";
+    cout << "\n\n\n++++++++++Fining a score.++++++++++++\n";
     int score;
 
-    cout << "\nEnter a score to find: ";
+    cout << "\n Enter a score to find: ";
     cin >> score;
     iter = find(VectorScores.begin(), VectorScores.end(), score);
 
@@ -854,21 +827,21 @@ void MyClass1::HighScores()
     {
 
         cout << "Score found. \n";
-
+        cout << "+++++ '"<<*iter <<"' +++++"<< endl;
 
     }
     else
     {
-        cout << "Score not found. \n";
+        cout << "\nScore not found. \n";
     }
 
 
-    cout << "\++++++++++Randomizing scores.++++++++++++++++";
+    cout << "\n++++++++++Randomizing scores.++++++++++++++++\n";
 
 
     srand(time(NULL));
     random_shuffle(VectorScores.begin(), VectorScores.end() );
-    cout << "\High Sores: \n";
+    cout << "\n High Sores: \n";
     for (iter = VectorScores.begin(); iter != VectorScores.end(); ++iter)
     {
 
@@ -892,5 +865,164 @@ void MyClass1::HighScores()
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////++++++++++++++++++++++++++++++++++++++Консольная змейка+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++/////////////////////////////////////////////
+
+
+void MyClass1::GameSnakeMainFun()
+{
+
+
+
+
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////Игра отгадай слово/////////////////////////////////////////////////////////////////////////////////////////////////////////
+void MyClass1::GameHangman()
+{
+    const int MAX_WRONG = 10;//максимальное количество ошибок
+
+    vector<string> VectWords; //вектор слов для отгалывания
+
+    vector<string>::const_iterator iter;// инициализация итератора
+
+    string StopEnter;//переменная для опроса ввода слов для загадки
+
+ //заполнение вектора массивом слов для закадывания 
+    string EntrWord;
+
+    do
+    {
+
+        cout << "\n+++++++++Setting for new game+++++++++++++++++++\n ";
+        cout << "\n*****Enter new word for puzzel: ";
+
+        cin >> EntrWord;
+
+        //перевожу слово в верхний регистр
+        int lengthStr = EntrWord.size();
+
+        for (int i = 0; i < lengthStr; i++)
+        {
+            EntrWord[i] = toupper(EntrWord[i]);
+        }
+        
+
+        VectWords.push_back(EntrWord);//кидаю в массив
+
+
+        cout << "\n \n Do you want enter word? (Y/N) \n ";
+        cin >> StopEnter;
+
+    } while ("N"!=StopEnter);
+   
+    ////отобразить массив слов для загадывания 
+    for (iter = VectWords.begin(); iter != VectWords.end(); ++iter)
+
+    {
+        cout <<"\n----' "<< *iter <<" '-----"<< endl;
+    }
+//***********************************************************************
+    ///посев числе
+    srand(time(NULL));
+
+    random_shuffle(VectWords.begin(), VectWords.end());//пермешиваем последовательность слов в случайном порядке 
+    cout << "\n\n\n\n+++Randomized list words+++:\n" << endl;
+
+        ////отобразить массив слов для загадывания 
+    for (iter = VectWords.begin(); iter != VectWords.end(); ++iter)
+
+    {
+        cout << "\n----' " << *iter << " '-----" << endl;
+    }
+    
+    const string THE_WORD = VectWords[0];//слово которое будем отгадывать нулевой элемент вектора
+
+    int CurrWrong = 0;/// тек кол ошибок
+
+    string PartWord(THE_WORD.size(), '-');//часть слова открытая на данный момент
+
+    string LetterWord = "";//уже отгаданные буквы
+
+
+    cout << "\n--------Welcome to Hangman. Good luck!!!-----------" << endl;
+
+
+    while ((CurrWrong<MAX_WRONG)&&(PartWord != THE_WORD))
+     
+
+    {
+
+        cout<<"\n --You have (wrongs) ->   '"<< (MAX_WRONG - CurrWrong)<< "'  incorrect guesses left.\n";
+
+        cout << "\n ---You have used the following letters:  " << LetterWord << endl;
+
+        cout << "\n ----So far. The word is:   " << PartWord << endl;
+
+        char guess;
+
+        cout << "\n\nEnter your guess: ";
+
+        cin >> guess;
+
+        guess = toupper(guess); //перевод в верхний регистр из за того что слово загаданно в верхнем регистре
+
+        while (LetterWord.find(guess)!=string::npos) //find найдет символ в слове LetterWord то он возвратит 'nops' и while заглохнет
+        {
+
+
+            cout << "\nYou have already guessed  '" << guess << "' " << endl;
+            cout << "Enter your guess: ";
+            cin >> guess;
+            guess = toupper(guess);
+
+        }
+        LetterWord += guess;
+
+        if (THE_WORD.find(guess) != string::npos)
+        {
+            cout << "That is right! " << guess << "is in the word. \n";
+            //обновить переменную PartWord включив в нее новую угаданную букву
+
+            for (int i = 0; i < THE_WORD.length(); i++)
+            {
+                if (THE_WORD[i] == guess)
+                {
+                    PartWord[i] = guess;
+                }
+            }
+        }
+
+        else
+        {
+            cout << "Sorry.  '"<<guess<<"' is not in the word.\n";
+            ++CurrWrong;
+        }      
+    }
+
+
+    if (CurrWrong==MAX_WRONG)
+
+    {
+        cout << "\n You have been hange!\n";
+    }
+
+    else
+
+    {
+        cout << "\nYou guessed it!";
+    }
+
+    cout << "\n+++++++++++++++++The word was----->: " << THE_WORD << endl;
+
+
+}
+
+
+
 
 

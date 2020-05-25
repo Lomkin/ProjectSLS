@@ -1,10 +1,14 @@
 ﻿  MyClass1.cpp
-D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(450,13): warning C4129: 's': unrecognized character escape sequence
-D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(523,24): warning C4305: '=': truncation from '__int64' to 'unsigned int'
-D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(523,13): warning C4309: '=': truncation of constant value
-D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(567,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(632,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(696,27): warning C4018: '<': signed/unsigned mismatch
-D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(706,23): warning C4018: '<': signed/unsigned mismatch
-D:\MyProjectC++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(716,23): warning C4018: '<': signed/unsigned mismatch
-  Project-1.vcxproj -> D:\MyProjectC++\ProjectSLS\Project-1\Debug\Project-1.exe
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(430,13): warning C4129: 's': unrecognized character escape sequence
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(547,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(615,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(680,27): warning C4018: '<': signed/unsigned mismatch
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(690,23): warning C4018: '<': signed/unsigned mismatch
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(700,23): warning C4018: '<': signed/unsigned mismatch
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(842,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(930,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(987,31): warning C4018: '<': signed/unsigned mismatch
+  Source.cpp
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\Source.cpp(11,6): warning C4101: 'N': unreferenced local variable
+  Generating Code...
+  Project-1.vcxproj -> F:\My_project_C++\ProjectSLS\Project-1\Debug\Project-1.exe
