@@ -23,6 +23,7 @@ MyClass1::~MyClass1()
 	cout << "DESTRUCTOR:Memory has been cleaned. Good bye!" << endl;
 }
 
+
 //////////////********************garbage collector*******************////////////////
 /*
 
@@ -1023,6 +1024,134 @@ void MyClass1::GameHangman()
 }
 
 
+//////////////////////////////ССЫЛКИ ПРМЕРЫ/////////////////////////////////////////////////////////////////////
 
+
+void MyClass1::Referencing()
+{
+    int entr{0};
+    int Myscore{ 1000 };
+    int& ExReference = Myscore;//создал ссылку
+    cout << "\n*****My_Score_is: "<< Myscore <<endl;
+    cout << "\n*****My_Reference_is: " << ExReference << endl;
+    ///  
+    cout << "\n\n\n\n*********Adding_500_to_My_Score************" << endl;
+    cin >> entr;
+    Myscore += entr;
+
+    ////
+    cout << "\n+++++>My_Score_is: " << Myscore << endl;
+    cout << "\n\n\n\n------>My_Reference_is: " << ExReference << endl;
+
+
+    cout << "\n\n\n\n*****************Adding_500_to_My_Reference**************" << endl;
+    cin >> entr;
+    ExReference += entr;
+
+
+    ////
+    cout << "\n+++++>My_Score_is: " << Myscore << endl;
+    cout << "\n\n\n\n------>My_Reference_is: " << ExReference << endl;
+
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////ССЫЛКИ //////////////////
+void MyClass1::badSwap(int x ,int y)
+{
+
+    x = 9999;
+    y = 11111111;
+}
+
+void MyClass1::goodSwap(int& x,int& y)
+{
+
+    x = 9999;
+    y = 11111111;
+
+
+}
+
+////////////////////////////////ССЫЛКИ //////////////////////////////////////////////////////
+void MyClass1::SwapReferece()
+{
+    int MyScore = 150;
+    int YourScore = 1500;
+    cout << "******Original var*********" << endl;
+//////////
+    cout << ".....\nMyScore var:   " << MyScore << endl;
+    cout << ".....\nYourScore var:   " << YourScore << endl;
+///////////////
+    cout << "\n******Call fn badSwap*********" << endl;
+    badSwap(MyScore, YourScore);
+    cout << ".....\nMyScore var:   " << MyScore << endl;
+    cout << ".....\nYourScore var:   " << YourScore << endl;
+//////////////
+
+    cout << "\n******Call fn goodSwap*********" << endl;
+    goodSwap(MyScore, YourScore);
+    cout << ".....\nMyScore var:   " << MyScore << endl;
+    cout << ".....\nYourScore var:   " << YourScore << endl;
+
+
+    
+
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////констатные ссылки преимущество ссылок но на кого они ссылаются они не изменят в сравнении с обчсными ссылками
+
+void MyClass1::DisplayVectRef(const vector<string>& ConstVectRef)
+
+{
+    
+    cout<< "+++++Your items++++ : \n";
+
+    for (vector<string>::const_iterator iter = ConstVectRef.begin(); iter!= ConstVectRef.end(); ++iter)
+    {
+        cout << "Look itertor point to var:" << "\t*iter"<<*iter << endl;
+    }
+
+   
+}
+
+void MyClass1::InventoryDisplayer()
+{
+
+    vector<string> Myinventiry;
+
+    Myinventiry.push_back( "IN1" );
+
+    Myinventiry.push_back( "IN2" );
+
+    Myinventiry.push_back( "IN3");
+
+    DisplayVectRef( Myinventiry );
+
+  
+}
+
+
+///////////////////////////////ссылка на возвращяемую переменную функцией/////////////////////////////////////////////////////////////////////////////////////
+string& ReffToElement(vector<string>& VectReff,int i)
+
+{
+
+    vector<string> Myinventiry;
+
+    Myinventiry.push_back("IN1");
+
+    Myinventiry.push_back("IN2");
+
+    Myinventiry.push_back("IN3");
+
+
+
+
+
+}
 
 

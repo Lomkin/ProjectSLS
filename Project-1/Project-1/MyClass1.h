@@ -6,13 +6,15 @@
 
 #include<string>
 #include <iostream>
+#include<vector>
 
-
+using namespace std;
 class MyClass1 {
 
 
 public:
 	MyClass1();
+
 	~MyClass1();
 
 	void GuessGeme();
@@ -26,6 +28,7 @@ public:
 	void HighScores();
 	void GameSnakeMainFun();
 	void GameHangman();
+	void Referencing();
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
@@ -38,18 +41,15 @@ public:
 
 	}
 
-
-
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
 
 	template<class T3, class T4> void Summ2(T3 a1, T4 b2)
 	{
 
-		std::cout << a1 + b2 << std::endl;
+		cout << a1 + b2 << endl;
 
 	}
-
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////-------------Шаблонные функции-----------------/////////////////////////////////////
@@ -57,12 +57,10 @@ public:
 	template<class T5, class T6> void Summ3(T5 a1, T6 b2)
 	{
 
-		std::cout << (++a1) + (++b2) << std::endl;
+		cout << (++a1) + (++b2) << endl;
 
 	}
 	///////////////////////////////////////////////////////////////////////////
-
-
 
 	/////////////////////////Перегрузка функций//////////////////////////////////////////////
 	inline void fnFor(bool xSts, int iArr[], const int size);
@@ -71,16 +69,31 @@ public:
 
 	inline void fnFor1(int iArr[], const int size);
 
+
+	void SwapReferece();
+
+
+
+	void InventoryDisplayer();
+	
 private:
+
 	void pArr(int num);
 	int Foo(int myFact);
 	void ExArr();
 
+////работа с сылками
+	void badSwap(int x,int y);
 
+	void goodSwap(int& x,int& y);
+
+	void DisplayVectRef(const vector<string>& ConstVectRef);
 
 protected:
 	;
+
 };
+
 
 #endif
 
