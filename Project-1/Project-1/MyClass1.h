@@ -75,7 +75,7 @@ public:
 
 
 	void InventoryDisplayer();
-	
+	void InventoryReferencer();
 private:
 
 	void pArr(int num);
@@ -88,6 +88,7 @@ private:
 	void goodSwap(int& x,int& y);
 
 	void DisplayVectRef(const vector<string>& ConstVectRef);
+	string& ReffToElement(vector<string>& VectReff, int i);
 
 protected:
 	;

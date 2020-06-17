@@ -36,7 +36,7 @@ int main()
 
 	//ObjClass.HighScores();
 
-	ObjClass.InventoryDisplayer();
+	ObjClass.InventoryReferencer();
 
 	return 0;
 

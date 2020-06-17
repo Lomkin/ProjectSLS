@@ -528,9 +528,11 @@ void MyClass1::GameStats3_0()
     cout << "score: " << score << endl;
 
     enum diffeculty{NIVICE,EASY,NORMAL,HARD,UNBEATABLE};
+
     diffeculty MYenumDiff = EASY;
 
     enum shipcost { FIGHTER_COST=25,BOMBER_COST, CRUISER_COST=50};
+
     shipcost myShipCost = BOMBER_COST;
     cout << "\nTo upgrade my ship to a Cruiser will cost" << (CRUISER_COST - myShipCost) << "Resource Points.\n";
    
@@ -806,7 +808,6 @@ void MyClass1::HighScores()
     vector<int>::const_iterator iter;
     cout << "/*******************Creatinf a list of scores******************\\n";
     vector<int> VectorScores;
-
     VectorScores.push_back(1500);
     VectorScores.push_back(3500);
     VectorScores.push_back(7500);
@@ -919,7 +920,7 @@ void MyClass1::GameHangman()
         cout << "\n \n Do you want enter word? (Y/N) \n ";
         cin >> StopEnter;
 
-    } while ("N"!=StopEnter);
+    } while ("N"!=StopEnter and "n" != StopEnter);
    
     ////отобразить массив слов дл€ загадывани€ 
     for (iter = VectWords.begin(); iter != VectWords.end(); ++iter)
@@ -1136,22 +1137,102 @@ void MyClass1::InventoryDisplayer()
 
 
 ///////////////////////////////ссылка на возвращ€емую переменную функцией/////////////////////////////////////////////////////////////////////////////////////
-string& ReffToElement(vector<string>& VectReff,int i)
+string& MyClass1::ReffToElement(vector<string>& VectReff,int i)//вектор не в формате конст переменной поэтому можно изменить в обоих направлени€х
 
 {
 
-    vector<string> Myinventiry;
 
-    Myinventiry.push_back("IN1");
-
-    Myinventiry.push_back("IN2");
-
-    Myinventiry.push_back("IN3");
-
-
-
+    //возвращ€ем i-е значение вектора
+    return VectReff[i];
 
 
 }
+
+
+void MyClass1::InventoryReferencer()
+{
+
+
+    vector<string>::const_iterator iter;
+
+    vector<string> Myinventiry;
+
+    string EntrWord;
+        
+    string StopEnter;
+
+    int i = 0;
+
+
+   //заполн€ю вектор Myinventiry 
+    do
+    {
+
+        cout << "\n+++++++++Setting for new game+++++++++++++++++++\n ";
+        cout << "\n*****Enter new word for puzzel: ";
+
+        cin >> EntrWord;
+
+        //перевожу слово в верхний регистр
+        int lengthStr = EntrWord.size();
+
+        for (int i = 0; i < lengthStr; i++)
+        {
+            EntrWord[i] = toupper(EntrWord[i]);
+        }
+
+
+        Myinventiry.push_back(EntrWord);//кидаю в массив
+
+
+        cout << "\n \n Do you want enter word? (Y/N) \n ";
+        cin >> StopEnter;
+
+    } while ("N" != StopEnter and "n" != StopEnter);
+    
+
+    ////отобразить массив слов дл€ загадывани€ 
+    for (iter = Myinventiry.begin(); iter != Myinventiry.end(); ++iter)
+
+    {
+        cout << "\n----' " << *iter << " '-----" << endl;
+    }
+    //***********************************************************************
+
+
+
+
+    ///вызываю возвращ€ет нужный элемент вектора
+
+    cout << "\n\n****Sending the returned reference to cout: " << endl;
+    cout << "Enter position: ";
+    cin >> i;
+    cout << "\ni-MyInventory:" << ReffToElement(Myinventiry, i) << endl;
+
+
+    //дл€ примера денлаю присваивание ссылки другой ссылке -Ё“ќ ћјЋќ«ј“–ј“Ќјя ‘”Ќ ÷»я ѕ–»—¬ј»¬јЌ»я
+    cout << "\n\n******(string& RefStringTemp = ReffToElement(Myinventiry, i);)Assigning the returned reference to another reference****** "<<endl;
+    string& RefStringTemp = ReffToElement(Myinventiry, i);
+    cout << "\n\n******View new temp var refference:  " << RefStringTemp << endl;
+
+    //копирую строковый объект -Ё“ќ затратна€ ‘”Ќ ÷»я ѕ–»—¬ј»¬јЌ»я
+    cout << "\n\n******(string RefStringTemp2 = ReffToElement(Myinventiry, i);)Assigning the returned reference to string object****** " << endl;
+    string RefStringTemp2 = ReffToElement(Myinventiry, i);
+    cout << "\n\n******View new temp var refference:  " << RefStringTemp << endl;
+
+
+
+    //изменение строкового объекта посредством возвращаемой ссылки
+    cout << "\n\n******(string RefStringTemp2 = ReffToElement(Myinventiry, i);)Assigning the returned reference to string object****** " << endl;
+    RefStringTemp="++ZiZiTop++ ";
+    cout << "\n\n\n******NEW var in object ReffToElement():  " << Myinventiry[i] << endl;
+
+}
+
+
+//////крестики нолики////////////////
+/////////////////////ѕрограмма работы с нейронными сет€ми////////////////////
+
+
 
 

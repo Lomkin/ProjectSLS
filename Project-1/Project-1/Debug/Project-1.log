@@ -5,10 +5,15 @@ F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(616,15): warning C
 F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(681,27): warning C4018: '<': signed/unsigned mismatch
 F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(691,23): warning C4018: '<': signed/unsigned mismatch
 F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(701,23): warning C4018: '<': signed/unsigned mismatch
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(843,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(932,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(992,31): warning C4018: '<': signed/unsigned mismatch
-  Source.cpp
-F:\My_project_C++\ProjectSLS\Project-1\Project-1\Source.cpp(11,6): warning C4101: 'N': unreferenced local variable
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(842,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(931,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyClass1.cpp(991,31): warning C4018: '<': signed/unsigned mismatch
+  MyGameXO.cpp
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyGameXO.cpp(16,1): error C2084: function 'xoGame::xoGame(void)' already has a body
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyGameXO.h(28): message : see previous definition of '{ctor}'
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyGameXO.cpp(22,1): error C2084: function 'xoGame::~xoGame(void)' already has a body
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyGameXO.h(34): message : see previous definition of '{dtor}'
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyGameXO.cpp(33,2): error C3861: 'insructions': identifier not found
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyGameXO.cpp(59,60): error C2572: 'xoGame::askMunber': redefinition of default argument: parameter 1
+F:\My_project_C++\ProjectSLS\Project-1\Project-1\MyGameXO.h(54): message : see declaration of 'xoGame::askMunber'
   Generating Code...
-  Project-1.vcxproj -> F:\My_project_C++\ProjectSLS\Project-1\Debug\Project-1.exe
