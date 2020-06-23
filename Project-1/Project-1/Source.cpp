@@ -11,10 +11,18 @@ int main()
 	int N;
 	MyClass1 ObjClass;
 
+
+
+
 //	ObjClass.pArr(N);
+
+
+
 
 //	cout << "Enter var1 : " << endl;
 //	cout << "Enter va2:" << endl;
+
+
 
 	/*
 	switch (switch_on)
@@ -24,8 +32,11 @@ int main()
 		break;
 	}
 	*/
-	
-	ObjClass.HighScores();
+
+
+	//ObjClass.HighScores();
+
+	ObjClass.InventoryReferencer();
 
 	return 0;
 

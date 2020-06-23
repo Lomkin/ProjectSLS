@@ -6,21 +6,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <algorithm>
+#include <cctype>
+
+
 using namespace std;
 
 MyClass1::MyClass1()
 
 {
-	cout << "Consturctor" << endl;
+	cout << "CONSTRUCTOR:Run!" << endl;
 
   };
 
 MyClass1::~MyClass1()
 {
-	cout << "Memory has been cleaned. Good bye." << endl;
+	cout << "DESTRUCTOR:Memory has been cleaned. Good bye!" << endl;
 }
 
-/////////***********************garbage collector************************////////////////
+
+//////////////********************garbage collector*******************////////////////
 /*
 
 
@@ -254,36 +258,7 @@ void performance() {
 */
 
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////-------------Ўаблонные функции-----------------/////////////////////////////////////
-//class  тоже самое что и typename
-template<class T1, class T2>
-T1  MyClass1::Summ(T1 a, T2 b)
-{
-
-    return a + b;
-
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////-------------Ўаблонные функции-----------------/////////////////////////////////////
-template<class T1, class T2>
-void  MyClass1::Summ(T1 a1, T2 b2)
-{
-
-    cout << a1 + b2 << endl;
-
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////-------------Ўаблонные функции-----------------/////////////////////////////////////
-template<class T1, class T2>
-void  MyClass1::Summ(T1 a1, T2 b2)
-{
-
-    cout << (++a1) + (++b2) << endl;
-
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 /////////////ѕерегрузка функции///////////////////////////////////////////
 //////////////////////–андом заполнение массива/////////////////////////////////////////////
 inline void MyClass1::fnFor(bool xSts, int iArr[], const int size)
@@ -373,8 +348,7 @@ int  MyClass1::Foo(int myFact)
 ///////////////ƒинамичесоке выделение пам€ти///////////////////////////////////
 void MyClass1::ExArr()
 {
-    int num;
-
+    int num=0;
 
     int* ptrArr = new int[num];
 
@@ -527,7 +501,7 @@ void MyClass1::GameStats2_0()
 
 
 
-    score = 42342345435;
+    score = 42342345;
 
     cout << "\nscore: " << score << "\n\n\n\n\n\n" << endl;
 
@@ -554,9 +528,11 @@ void MyClass1::GameStats3_0()
     cout << "score: " << score << endl;
 
     enum diffeculty{NIVICE,EASY,NORMAL,HARD,UNBEATABLE};
+
     diffeculty MYenumDiff = EASY;
 
     enum shipcost { FIGHTER_COST=25,BOMBER_COST, CRUISER_COST=50};
+
     shipcost myShipCost = BOMBER_COST;
     cout << "\nTo upgrade my ship to a Cruiser will cost" << (CRUISER_COST - myShipCost) << "Resource Points.\n";
    
@@ -832,7 +808,6 @@ void MyClass1::HighScores()
     vector<int>::const_iterator iter;
     cout << "/*******************Creatinf a list of scores******************\\n";
     vector<int> VectorScores;
-
     VectorScores.push_back(1500);
     VectorScores.push_back(3500);
     VectorScores.push_back(7500);
@@ -843,10 +818,10 @@ void MyClass1::HighScores()
         cout << "_____" << *iter << "_____" << endl;
     }
 
-    cout << "\n\n\n++++++++++Fining a score.++++++++++++";
+    cout << "\n\n\n++++++++++Fining a score.++++++++++++\n";
     int score;
 
-    cout << "\nEnter a score to find: ";
+    cout << "\n Enter a score to find: ";
     cin >> score;
     iter = find(VectorScores.begin(), VectorScores.end(), score);
 
@@ -854,21 +829,21 @@ void MyClass1::HighScores()
     {
 
         cout << "Score found. \n";
-
+        cout << "+++++ '"<<*iter <<"' +++++"<< endl;
 
     }
     else
     {
-        cout << "Score not found. \n";
+        cout << "\nScore not found. \n";
     }
 
 
-    cout << "\++++++++++Randomizing scores.++++++++++++++++";
+    cout << "\n++++++++++Randomizing scores.++++++++++++++++\n";
 
 
     srand(time(NULL));
     random_shuffle(VectorScores.begin(), VectorScores.end() );
-    cout << "\High Sores: \n";
+    cout << "\n High Sores: \n";
     for (iter = VectorScores.begin(); iter != VectorScores.end(); ++iter)
     {
 
@@ -892,5 +867,372 @@ void MyClass1::HighScores()
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////++++++++++++++++++++++++++++++++++++++ онсольна€ змейка+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++/////////////////////////////////////////////
+
+
+void MyClass1::GameSnakeMainFun()
+{
+
+
+
+
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////»гра отгадай слово/////////////////////////////////////////////////////////////////////////////////////////////////////////
+void MyClass1::GameHangman()
+{
+    const int MAX_WRONG = 10;//максимальное количество ошибок
+
+    vector<string> VectWords; //вектор слов дл€ отгалывани€
+
+    vector<string>::const_iterator iter;// инициализаци€ итератора
+
+    string StopEnter;//переменна€ дл€ опроса ввода слов дл€ загадки
+
+ //заполнение вектора массивом слов дл€ закадывани€ 
+    string EntrWord;
+
+    do
+    {
+
+        cout << "\n+++++++++Setting for new game+++++++++++++++++++\n ";
+        cout << "\n*****Enter new word for puzzel: ";
+
+        cin >> EntrWord;
+
+        //перевожу слово в верхний регистр
+        int lengthStr = EntrWord.size();
+
+        for (int i = 0; i < lengthStr; i++)
+        {
+            EntrWord[i] = toupper(EntrWord[i]);
+        }
+        
+
+        VectWords.push_back(EntrWord);//кидаю в массив
+
+
+        cout << "\n \n Do you want enter word? (Y/N) \n ";
+        cin >> StopEnter;
+
+    } while ("N"!=StopEnter and "n" != StopEnter);
+   
+    ////отобразить массив слов дл€ загадывани€ 
+    for (iter = VectWords.begin(); iter != VectWords.end(); ++iter)
+
+    {
+        cout <<"\n----' "<< *iter <<" '-----"<< endl;
+    }
+//***********************************************************************
+    ///посев числе
+    srand(time(NULL));
+
+    random_shuffle(VectWords.begin(), VectWords.end());//пермешиваем последовательность слов в случайном пор€дке 
+    cout << "\n\n\n\n+++Randomized list words+++:\n" << endl;
+
+        ////отобразить массив слов дл€ загадывани€ 
+    for (iter = VectWords.begin(); iter != VectWords.end(); ++iter)
+
+    {
+        cout << "\n----' " << *iter << " '-----" << endl;
+    }
+    
+    const string THE_WORD = VectWords[0];//слово которое будем отгадывать нулевой элемент вектора
+
+    int CurrWrong = 0;/// тек кол ошибок
+
+    string PartWord(THE_WORD.size(), '-');//часть слова открыта€ на данный момент
+
+    string LetterWord = "";//уже отгаданные буквы
+
+
+    cout << "\n--------Welcome to Hangman. Good luck!!!-----------" << endl;
+
+
+    while ((CurrWrong<MAX_WRONG)&&(PartWord != THE_WORD))
+     
+
+    {
+
+        cout<<"\n --You have (wrongs) ->   '"<< (MAX_WRONG - CurrWrong)<< "'  incorrect guesses left.\n";
+
+        cout << "\n ---You have used the following letters:  " << LetterWord << endl;
+
+        cout << "\n ----So far. The word is:   " << PartWord << endl;
+
+        char guess;
+
+        cout << "\n\nEnter your guess: ";
+
+        cin >> guess;
+
+        guess = toupper(guess); //перевод в верхний регистр из за того что слово загаданно в верхнем регистре
+
+        while (LetterWord.find(guess)!=string::npos) //find найдет символ в слове LetterWord то он возвратит 'nops' и while заглохнет
+        {
+
+
+            cout << "\nYou have already guessed  '" << guess << "' " << endl;
+            cout << "Enter your guess: ";
+            cin >> guess;
+            guess = toupper(guess);
+
+        }
+        LetterWord += guess;
+
+        if (THE_WORD.find(guess) != string::npos)
+        {
+            cout << "That is right! " << guess << "is in the word. \n";
+            //обновить переменную PartWord включив в нее новую угаданную букву
+
+            for (int i = 0; i < THE_WORD.length(); i++)
+            {
+                if (THE_WORD[i] == guess)
+                {
+                    PartWord[i] = guess;
+                }
+            }
+        }
+
+        else
+        {
+            cout << "Sorry.  '"<<guess<<"' is not in the word.\n";
+            ++CurrWrong;
+        }      
+    }
+
+
+    if (CurrWrong==MAX_WRONG)
+
+    {
+        cout << "\n You have been hange!\n";
+    }
+
+    else
+
+    {
+        cout << "\nYou guessed it!";
+    }
+
+    cout << "\n+++++++++++++++++The word was----->: " << THE_WORD << endl;
+
+
+}
+
+
+//////////////////////////////——џЋ » ѕ–ћ≈–џ/////////////////////////////////////////////////////////////////////
+
+
+void MyClass1::Referencing()
+{
+    int entr{0};
+    int Myscore{ 1000 };
+    int& ExReference = Myscore;//создал ссылку
+    cout << "\n*****My_Score_is: "<< Myscore <<endl;
+    cout << "\n*****My_Reference_is: " << ExReference << endl;
+    ///  
+    cout << "\n\n\n\n*********Adding_500_to_My_Score************" << endl;
+    cin >> entr;
+    Myscore += entr;
+
+    ////
+    cout << "\n+++++>My_Score_is: " << Myscore << endl;
+    cout << "\n\n\n\n------>My_Reference_is: " << ExReference << endl;
+
+
+    cout << "\n\n\n\n*****************Adding_500_to_My_Reference**************" << endl;
+    cin >> entr;
+    ExReference += entr;
+
+
+    ////
+    cout << "\n+++++>My_Score_is: " << Myscore << endl;
+    cout << "\n\n\n\n------>My_Reference_is: " << ExReference << endl;
+
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////——џЋ » //////////////////
+void MyClass1::badSwap(int x ,int y)
+{
+
+    x = 9999;
+    y = 11111111;
+}
+
+void MyClass1::goodSwap(int& x,int& y)
+{
+
+    x = 9999;
+    y = 11111111;
+
+
+}
+
+////////////////////////////////——џЋ » //////////////////////////////////////////////////////
+void MyClass1::SwapReferece()
+{
+    int MyScore = 150;
+    int YourScore = 1500;
+    cout << "******Original var*********" << endl;
+//////////
+    cout << ".....\nMyScore var:   " << MyScore << endl;
+    cout << ".....\nYourScore var:   " << YourScore << endl;
+///////////////
+    cout << "\n******Call fn badSwap*********" << endl;
+    badSwap(MyScore, YourScore);
+    cout << ".....\nMyScore var:   " << MyScore << endl;
+    cout << ".....\nYourScore var:   " << YourScore << endl;
+//////////////
+
+    cout << "\n******Call fn goodSwap*********" << endl;
+    goodSwap(MyScore, YourScore);
+    cout << ".....\nMyScore var:   " << MyScore << endl;
+    cout << ".....\nYourScore var:   " << YourScore << endl;
+
+
+    
+
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////констатные ссылки преимущество ссылок но на кого они ссылаютс€ они не измен€т в сравнении с обчсными ссылками
+
+void MyClass1::DisplayVectRef(const vector<string>& ConstVectRef)
+
+{
+    
+    cout<< "+++++Your items++++ : \n";
+
+    for (vector<string>::const_iterator iter = ConstVectRef.begin(); iter!= ConstVectRef.end(); ++iter)
+    {
+        cout << "Look itertor point to var:" << "\t*iter"<<*iter << endl;
+    }
+
+   
+}
+
+void MyClass1::InventoryDisplayer()
+{
+
+    vector<string> Myinventiry;
+
+    Myinventiry.push_back( "IN1" );
+
+    Myinventiry.push_back( "IN2" );
+
+    Myinventiry.push_back( "IN3");
+
+    DisplayVectRef( Myinventiry );
+
+  
+}
+
+
+///////////////////////////////ссылка на возвращ€емую переменную функцией/////////////////////////////////////////////////////////////////////////////////////
+string& MyClass1::ReffToElement(vector<string>& VectReff,int i)//вектор не в формате конст переменной поэтому можно изменить в обоих направлени€х
+
+{
+
+
+    //возвращ€ем i-е значение вектора
+    return VectReff[i];
+
+
+}
+
+
+void MyClass1::InventoryReferencer()
+{
+
+
+    vector<string>::const_iterator iter;
+
+    vector<string> Myinventiry;
+
+    string EntrWord;
+        
+    string StopEnter;
+
+    int i = 0;
+
+
+   //заполн€ю вектор Myinventiry 
+    do
+    {
+
+        cout << "\n+++++++++Setting for new game+++++++++++++++++++\n ";
+        cout << "\n*****Enter new word for puzzel: ";
+
+        cin >> EntrWord;
+
+        //перевожу слово в верхний регистр
+        int lengthStr = EntrWord.size();
+
+        for (int i = 0; i < lengthStr; i++)
+        {
+            EntrWord[i] = toupper(EntrWord[i]);
+        }
+
+
+        Myinventiry.push_back(EntrWord);//кидаю в массив
+
+
+        cout << "\n \n Do you want enter word? (Y/N) \n ";
+        cin >> StopEnter;
+
+    } while ("N" != StopEnter and "n" != StopEnter);
+    
+
+    ////отобразить массив слов дл€ загадывани€ 
+    for (iter = Myinventiry.begin(); iter != Myinventiry.end(); ++iter)
+
+    {
+        cout << "\n----' " << *iter << " '-----" << endl;
+    }
+    //***********************************************************************
+
+
+
+
+    ///вызываю возвращ€ет нужный элемент вектора
+
+    cout << "\n\n****Sending the returned reference to cout: " << endl;
+    cout << "Enter position: ";
+    cin >> i;
+    cout << "\ni-MyInventory:" << ReffToElement(Myinventiry, i) << endl;
+
+
+    //дл€ примера денлаю присваивание ссылки другой ссылке -Ё“ќ ћјЋќ«ј“–ј“Ќјя ‘”Ќ ÷»я ѕ–»—¬ј»¬јЌ»я
+    cout << "\n\n******(string& RefStringTemp = ReffToElement(Myinventiry, i);)Assigning the returned reference to another reference****** "<<endl;
+    string& RefStringTemp = ReffToElement(Myinventiry, i);
+    cout << "\n\n******View new temp var refference:  " << RefStringTemp << endl;
+
+    //копирую строковый объект -Ё“ќ затратна€ ‘”Ќ ÷»я ѕ–»—¬ј»¬јЌ»я
+    cout << "\n\n******(string RefStringTemp2 = ReffToElement(Myinventiry, i);)Assigning the returned reference to string object****** " << endl;
+    string RefStringTemp2 = ReffToElement(Myinventiry, i);
+    cout << "\n\n******View new temp var refference:  " << RefStringTemp << endl;
+
+
+
+    //изменение строкового объекта посредством возвращаемой ссылки
+    cout << "\n\n******(string RefStringTemp2 = ReffToElement(Myinventiry, i);)Assigning the returned reference to string object****** " << endl;
+    RefStringTemp="++ZiZiTop++ ";
+    cout << "\n\n\n******NEW var in object ReffToElement():  " << Myinventiry[i] << endl;
+
+}
+
+
+//////крестики нолики////////////////
+/////////////////////ѕрограмма работы с нейронными сет€ми////////////////////
+
+
 
 
